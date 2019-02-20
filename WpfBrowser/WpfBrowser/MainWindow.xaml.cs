@@ -32,7 +32,7 @@ namespace WpfBrowser
                 cBox.Items.Add(item);
             }
             browserControl.Navigate("http://www.spartaglobal.com");
-            createFile();
+            //createFile();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -41,37 +41,22 @@ namespace WpfBrowser
             string item = cBox.SelectedItem.ToString();
             browserControl.Navigate(item);
             WritetoFile(item);
-
-            
+       
         }
-        public void createFile()
-        {
-            //List<string> history = new List<string>();
-            //history.Add(item);
-            // Set a variable to the Documents path.
-            string docPath =
-              Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            
-
-            // Write the string array to a new file named "WriteLines.txt".
-            using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, "WriteLines.txt")))
-            {              
-                    outputFile.WriteLine("History");
-            }
-        }
+        
         public void WritetoFile(string item)
         {
-            string docPath =
-              Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-            using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, "WriteLines.txt")))
-            {
-                outputFile.WriteLine(item);
-            }
+            string path = @"C:\Users\tech-w100a\Documents\History.txt";
+            
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(item );
+                }
 
         }
         public void populateCombo()
-        {       
+        {
+            comboBoxDataStorage.Add("https://www.bbc.co.uk/news");
             comboBoxDataStorage.Add("http://www.bing.com");
             comboBoxDataStorage.Add("http://www.yahoo.com");
             comboBoxDataStorage.Add("http://www.whatsmyip.com");
