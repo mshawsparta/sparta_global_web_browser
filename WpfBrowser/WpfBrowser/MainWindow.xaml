@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <ComboBox Name="cBox" HorizontalAlignment="Left" Margin="64,35,0,0" VerticalAlignment="Top" Width="632" Height="41" SelectionChanged="ComboBox_SelectionChanged" IsEditable="True" IsTextSearchEnabled = "False" KeyDown="OnKeyPress">
-            <ComboBoxItem>www</ComboBoxItem>
+            
 
         </ComboBox>
         <WebBrowser Name ="browserControl" HorizontalAlignment="Left" Height="256" Margin="64,120,0,0" VerticalAlignment="Top" Width="632" />
